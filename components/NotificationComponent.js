@@ -34,12 +34,6 @@ class Notification extends Component {
     onValue(child(dbRef, "contact/"), (snapshot) => {
       const value = snapshot.val();
       this.setState({
-        number: value.address.number,
-        street: value.address.street,
-        district: value.address.district,
-        city: value.address.city,
-        phone: value.phone,
-        fax: value.fax,
         email: value.email,
       });
     });
