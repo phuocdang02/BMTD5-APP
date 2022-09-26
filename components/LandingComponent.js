@@ -11,7 +11,7 @@ import { baseUrl } from "../shared/baseUrl";
 
 class Landing extends Component {
   render() {
-    const {navigate} = this.props.navigation;
+    const { navigate } = this.props.navigation;
     const styles = StyleSheet.create({
       image: {
         width: "100%",
@@ -27,10 +27,10 @@ class Landing extends Component {
         color: "#fff",
         fontSize: 30,
       },
-      subtext:{
+      subtext: {
         textAlign: "center",
         backgroundColor: "transparent",
-        fontWeight:"bold",
+        fontWeight: "bold",
         color: "#fff",
         fontSize: 25,
       },

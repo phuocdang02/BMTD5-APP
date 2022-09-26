@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Main from "./components_previous/MainComponent";
+import Main from "./components/MainComponent";
 import "./ignoreWarnings";
 
 // redux

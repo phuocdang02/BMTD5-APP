@@ -15,6 +15,8 @@ import { baseUrl } from "../shared/baseUrl";
 
 import Landing from "./LandingComponent";
 //import Home from "./HomeComponent";
+import Shelf from "./ShelfComponent";
+import Detail from "./DetailComponent";
 
 function LandingNavigatorScreen() {
   const LandingNavigator = createStackNavigator();
@@ -115,10 +117,10 @@ function ShelfNavigatorScreen() {
         })}
       />
       <ShelfNavigator.Screen
-        name="Bookdetail"
-        component={Bookdetail}
+        name="Detail"
+        component={Detail}
         options={{
-          headerTitle: "Book Detail",
+          headerTitle: "Detail",
         }}
       />
     </ShelfNavigator.Navigator>
@@ -139,12 +141,12 @@ function CustomDrawerContent(props) {
         <View style={{ flex: 1 }}>
           <Image
             source={{ uri: baseUrl + "images/logo.jpg" }}
-            style={{ margin: 5, width: 80, height: 60, borderRadius: 50 }}
+            style={{ margin: 5, width: 80, height: 60, borderRadius: 0 }}
           />
         </View>
         <View style={{ flex: 2 }}>
           <Text style={{ color: "#fff", fontSize: 22, fontWeight: "bold" }}>
-            Pastel Library
+            TAY DO 5 Library
           </Text>
         </View>
       </View>
@@ -208,6 +210,29 @@ function MainNavigatorScreen(props) {
   );
 }
 
+//redux
+import { connect } from "react-redux";
+import {
+  fetchLeaders,
+  fetchBooks,
+  fetchComments,
+  fetchPromos,
+  logoutUser,
+} from "../redux/ActionCreators";
+// redux
+const mapStateToProps = (state) => {
+  return {
+    users: state.users,
+  };
+};
+const mapDispatchToProps = (dispatch) => ({
+  fetchLeaders: () => dispatch(fetchLeaders()),
+  fetchBooks: () => dispatch(fetchBooks()),
+  fetchComments: () => dispatch(fetchComments()),
+  fetchPromos: () => dispatch(fetchPromos()),
+  logoutUser: () => dispatch(logoutUser()),
+});
+
 class Main extends Component {
   render() {
     return (
@@ -216,4 +241,12 @@ class Main extends Component {
       </NavigationContainer>
     );
   }
+  componentDidMount() {
+    // redux
+    this.props.fetchLeaders();
+    this.props.fetchBooks();
+    this.props.fetchComments();
+    this.props.fetchPromos();
+  }
 }
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
