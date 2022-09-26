@@ -9,12 +9,6 @@ class Notification extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      number: "",
-      street: "",
-      district: "",
-      city: "",
-      phone: "",
-      fax: "",
       email: "",
     };
   }
@@ -24,13 +18,6 @@ class Notification extends Component {
         <Card>
           <Card.Title>Contact Information</Card.Title>
           <Card.Divider />
-          <Text style={{ margin: 10 }}>
-            {this.state.number}, {this.state.street}
-          </Text>
-          <Text style={{ margin: 10 }}>{this.state.district}</Text>
-          <Text style={{ margin: 10 }}>{this.state.city}</Text>
-          <Text style={{ margin: 10 }}>Tel: {this.state.phone}</Text>
-          <Text style={{ margin: 10 }}>Fax: {this.state.fax}</Text>
           <Text style={{ margin: 10 }}>Email: {this.state.email}</Text>
           <Button
             title=" Compose Email"
